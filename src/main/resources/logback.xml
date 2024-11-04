@@ -1,0 +1,34 @@
+<configuration>
+
+    <springProperty name="appName" source="spring.application.name" />
+
+    <property scope="context" name="logDirectory"
+              value="${user.home}/Apps/[ProjectName]/Logs" />
+
+    <property name="logPattern"
+              value="%d{yyyy-MM-dd HH:mm:ss:SSS} level=%5p {App: ${appName:-}, trace: %X{traceId:-}, span: %X{spanId:-}} %c{0} %M %line = %msg%n" />
+
+    <appender class="ch.qos.logback.core.ConsoleAppender" name="Console">
+        <encoder>
+            <pattern>${logPattern}%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="File" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logDirectory}/${appName:-}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${logDirectory}/${appName:-}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>5MB</maxFileSize>
+            <totalSizeCap>200GB</totalSizeCap>
+            <maxHistory>10000</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${logPattern}</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="Console" />
+        <appender-ref ref="File" />
+    </root>
+</configuration>
