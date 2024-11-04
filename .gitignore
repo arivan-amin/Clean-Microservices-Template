@@ -4,6 +4,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+Docker/tempo/tempo-data
+
 ### STS ###
 .apt_generated
 .classpath
