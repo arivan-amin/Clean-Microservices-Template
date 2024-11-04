@@ -48,6 +48,7 @@
         <module>Api-Gateway</module>
         <module>Core</module>
         <module>Audit-Service</module>
+        <module>Employee-Service</module>
     </modules>
 
     <dependencies>

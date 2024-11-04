@@ -1,4 +1,4 @@
-package com.arivanamin.healthcare.backend.api.gateway.infrastructure.config;
+package com.arivanamin.healthcare.backend.api.gateway.infrastructure.routing;
 
 import org.springframework.cloud.gateway.route.Route;
 import org.springframework.cloud.gateway.route.RouteLocator;
@@ -11,7 +11,7 @@ import java.util.function.Function;
 import static java.lang.System.getenv;
 
 @Configuration
-public class ApiGatewayConfig {
+public class ApiGatewayRouting {
     
     public static final String EUREKA_HOST = getenv().getOrDefault("EUREKA_HOST", "localhost");
     
@@ -22,9 +22,9 @@ public class ApiGatewayConfig {
         return builder.routes()
             .route(getDiscoveryServerRoute())
             .route(getDiscoveryServerStaticResourcesRoute())
-            .route(getServiceRoute())
-            .route(getServiceApiDocRoute())
-            .route(getServiceActuatorRoute())
+            .route(getEmployeeServiceRoute())
+            .route(getEmployeeServiceApiDocRoute())
+            .route(getEmployeeServiceActuatorRoute())
             .build();
     }
     
@@ -36,20 +36,19 @@ public class ApiGatewayConfig {
         return r -> r.path("/eureka/**").uri(EUREKA_URL);
     }
     
-    private Function<PredicateSpec, Buildable<Route>> getServiceRoute () {
-        return r -> r.path("/[service-name]s/**").uri("lb://[service-name]-service");
+    private Function<PredicateSpec, Buildable<Route>> getEmployeeServiceRoute () {
+        return r -> r.path("/employees/**").uri("lb://employee-service");
     }
     
-    private Function<PredicateSpec, Buildable<Route>> getServiceApiDocRoute () {
-        return r -> r.path("/[service-name]-service/api-docs")
-            .filters(f -> f.setPath("/v3/api-docs"))
-            .uri("lb://[service-name]-service");
+    private Function<PredicateSpec, Buildable<Route>> getEmployeeServiceApiDocRoute () {
+        return r -> r.path("/employee-service/api-docs")
+            .filters(f -> f.setPath("/v3/api-docs")).uri("lb://employee-service");
     }
     
-    private Function<PredicateSpec, Buildable<Route>> getServiceActuatorRoute () {
-        return r -> r.path("/actuator/[service-name]s/**")
-            .filters(f -> f.rewritePath("/actuator/[service-name]s/(?<segment>.*)",
-                "/actuator/${segment}"))
-            .uri("lb://[service-name]-service");
+    private Function<PredicateSpec, Buildable<Route>> getEmployeeServiceActuatorRoute () {
+        return r -> r.path("/actuator/employees/**")
+            .filters(
+                f -> f.rewritePath("/actuator/employees/(?<segment>.*)", "/actuator/${segment}"))
+            .uri("lb://employee-service");
     }
 }
