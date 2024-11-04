@@ -10,7 +10,7 @@ public final class CoreApplicationConfig {
     
     public static final String APPLICATION_DIRECTORY_NAME = "App-Name";
     
-    public static final String BASE_PACKAGE = "com.your-package.backend";
+    public static final String BASE_PACKAGE = "com.arivanamin.app-name.backend";
     
     public static final String APP_TIMEZONE = "Asia/Baghdad";
     

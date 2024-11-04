@@ -7,12 +7,6 @@ scrape_configs:
     static_configs:
       - targets: [ 'prometheus:9090' ]
 
-  - job_name: 'mysql'
-    static_configs:
-      - targets: [ '172.17.0.1:9104' ]
-        labels:
-          instance: 'MySQL-Database'
-
   - job_name: 'api-gateway-service'
     metrics_path: '/actuator/api-gateway/prometheus'
     static_configs:
@@ -21,10 +15,10 @@ scrape_configs:
           instance: 'Api-Gateway-Service'
           application: 'Api-Gateway-Service'
 
-  - job_name: 'patient-service'
-    metrics_path: '/actuator/patients/prometheus'
+  - job_name: 'employee-service'
+    metrics_path: '/actuator/employees/prometheus'
     static_configs:
       - targets: [ '172.17.0.1:8080' ]
         labels:
-          instance: 'Patient-Service'
-          application: 'Patient-Service'
+          instance: 'Employee-Service'
+          application: 'Employee-Service'
