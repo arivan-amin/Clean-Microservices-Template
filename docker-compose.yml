@@ -5,31 +5,31 @@ volumes:
 
 services:
   discovery-server:
-    container_name: project-name-discovery-server
+    container_name: app-name-discovery-server
     restart: unless-stopped
-    image: arivanamin/project-name-discovery-server
+    image: arivanamin/app-name-discovery-server
     ports:
       - "8761:8761"
     env_file:
       - .env
     volumes:
-      - app-logs:/root/Apps/Project-Logs-Directory/Logs/
+      - app-logs:/root/Apps/app-name/Logs/
 
   api-gateway:
-    container_name: project-name-api-gateway
+    container_name: app-name-api-gateway
     restart: unless-stopped
-    image: arivanamin/project-name-api-gateway
+    image: arivanamin/app-name-api-gateway
     ports:
       - "8080:8080"
     env_file:
       - .env
     volumes:
-      - app-logs:/root/Apps/Project-Logs-Directory/Logs/
+      - app-logs:/root/Apps/app-name/Logs/
     depends_on:
       - discovery-server
 
   tempo:
-    container_name: project-name-tempo
+    container_name: app-name-tempo
     restart: unless-stopped
     image: grafana/tempo:2.3.0
     command: [ "-config.file=/etc/tempo.yaml" ]
@@ -40,7 +40,7 @@ services:
       - "9411:9411" # zipkin
 
   loki:
-    container_name: project-name-loki
+    container_name: app-name-loki
     restart: unless-stopped
     image: grafana/loki:3.2.0
     command: [ "-config.file=/etc/loki/local-config.yaml" ]
@@ -48,17 +48,17 @@ services:
       - "3100:3100"
 
   promtail:
-    container_name: project-name-promtail
+    container_name: app-name-promtail
     restart: unless-stopped
     image: grafana/promtail:3.2.0
     volumes:
       - ./Docker/promtail/promtail-config.yaml:/etc/promtail/config.yml
       - app-logs:/logs
-      - ${HOME}/Apps/Project-Logs-Directory/Logs:/local-logs
+      - ${HOME}/Apps/app-name/Logs:/local-logs
     command: -config.file=/etc/promtail/config.yml
 
   prometheus:
-    container_name: project-name-prometheus
+    container_name: app-name-prometheus
     restart: unless-stopped
     image: prom/prometheus:v2.54.1
     command:
@@ -70,7 +70,7 @@ services:
       - "9090:9090"
 
   grafana:
-    container_name: project-name-grafana
+    container_name: app-name-grafana
     restart: unless-stopped
     image: grafana/grafana:11.2.0
     volumes:
@@ -83,7 +83,7 @@ services:
       - "3000:3000"
   
   mysql:
-    container_name: project-name-mysql
+    container_name: app-name-mysql
     restart: unless-stopped
     image: mysql:9.0.1
     environment:
@@ -95,7 +95,7 @@ services:
       - ./Docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   mongo:
-    container_name: project-name-mongo
+    container_name: app-name-mongo
     restart: unless-stopped
     image: mongo:8.0.0
     ports:
@@ -115,13 +115,13 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: mongo
-      ME_CONFIG_MONGODB_SERVER: project-name-mongo
+      ME_CONFIG_MONGODB_SERVER: app-name-mongo
     depends_on:
       - mongo
 
   # Kafka
   zookeeper:
-    container_name: project-name-zookeeper
+    container_name: app-name-zookeeper
     restart: unless-stopped
     image: confluentinc/cp-zookeeper:7.5.0
     hostname: zookeeper
@@ -132,7 +132,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
 
   broker:
-    container_name: project-name-broker
+    container_name: app-name-broker
     restart: unless-stopped
     image: confluentinc/cp-kafka:7.5.0
     ports:
@@ -148,7 +148,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
   schema-registry:
-    container_name: project-name-schema-registry
+    container_name: app-name-schema-registry
     restart: unless-stopped
     image: confluentinc/cp-schema-registry:7.5.0
     hostname: schema-registry
@@ -162,7 +162,7 @@ services:
       SCHEMA_REGISTRY_LISTENERS: http://schema-registry:8081
 
   kafka-ui:
-    container_name: project-name-kafka-ui
+    container_name: app-name-kafka-ui
     restart: unless-stopped
     image: provectuslabs/kafka-ui:latest
     ports:
@@ -176,12 +176,12 @@ services:
 
   # Services
 #  [serviceName]-service:
-#    container_name: project-name-[serviceName]-service
+#    container_name: app-name-[serviceName]-service
 #    restart: unless-stopped
-#    image: arivanamin/project-name-[serviceName]-service
+#    image: arivanamin/app-name-[serviceName]-service
 #    env_file:
 #      - .env
 #    volumes:
-#      - app-logs:/root/Apps/Project-Logs-Directory/Logs/
+#      - app-logs:/root/Apps/app-name/Logs/
 #    depends_on:
 #      - discovery-server
