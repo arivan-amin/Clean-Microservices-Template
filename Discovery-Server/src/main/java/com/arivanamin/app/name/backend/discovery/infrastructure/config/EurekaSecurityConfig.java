@@ -1,4 +1,4 @@
-package com.arivanamin.healthcare.backend.discovery.infrastructure.config;
+package com.arivanamin.app.name.backend.discovery.infrastructure.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
