@@ -1,4 +1,4 @@
-package com.arivanamin.healthcare.backend.api.gateway.infrastructure.routing;
+package com.arivanamin.app.name.backend.api.gateway.infrastructure.routing;
 
 import org.springframework.cloud.gateway.route.Route;
 import org.springframework.cloud.gateway.route.RouteLocator;

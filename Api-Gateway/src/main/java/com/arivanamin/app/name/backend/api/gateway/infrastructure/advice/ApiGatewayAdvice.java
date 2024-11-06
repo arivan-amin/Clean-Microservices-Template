@@ -1,4 +1,4 @@
-package com.arivanamin.healthcare.backend.api.gateway.infrastructure.advice;
+package com.arivanamin.app.name.backend.api.gateway.infrastructure.advice;
 
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
