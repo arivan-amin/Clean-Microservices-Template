@@ -31,9 +31,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.arivanamin.healthcare</groupId>
+            <groupId>com.arivanamin.app-name</groupId>
             <artifactId>Core</artifactId>
-            <version>${core-module-version}</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>

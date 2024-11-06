@@ -1,6 +1,6 @@
-package com.arivanamin.healthcare.backend.core.domain.dates;
+package com.arivanamin.app.name.backend.core.domain.dates;
 
-import com.arivanamin.healthcare.backend.core.domain.base.CoreApplicationConfig;
+import com.arivanamin.app.name.backend.core.domain.base.CoreApplicationConfig;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;

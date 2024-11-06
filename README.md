@@ -23,48 +23,6 @@ The system is designed to manage ___________ as a microservices using modern **J
 - **loki**: For centralized logging.
 - **tempo**: For distributed tracing.
 
-## Grafana Monitoring Screenshots
-
-### Services monitoring dashboard main section
-
-![image](https://raw.githubusercontent.com/arivan-amin/Healthcare-Management-Microservices/master/Docs/Grafana/Grafana-Dashboard-1.png)
-
-### Graphs for total requests response time and response time per endpoint
-
-![image](https://raw.githubusercontent.com/arivan-amin/Healthcare-Management-Microservices/master/Docs/Grafana/Grafana-Dashboard-2.png)
-
-### Graphs for total calls made to Jpa repository
-
-![image](https://raw.githubusercontent.com/arivan-amin/Healthcare-Management-Microservices/master/Docs/Grafana/Grafana-Dashboard-4.png)
-
-### Graphs for percentage of HTTP request status codes, 2xx, 3xx, 4xx, and 5xx
-
-![image](https://raw.githubusercontent.com/arivan-amin/Healthcare-Management-Microservices/master/Docs/Grafana/Grafana-Dashboard-6.png)
-
-### Graphs for graph on .95 and .99 percentile histogram to identify bottlenecks
-
-![image](https://raw.githubusercontent.com/arivan-amin/Healthcare-Management-Microservices/master/Docs/Grafana/Grafana-Dashboard-7.png)
-
-### Graphs for JVM performance, threads, GC, logs and IO
-
-![image](https://raw.githubusercontent.com/arivan-amin/Healthcare-Management-Microservices/master/Docs/Grafana/Grafana-Dashboard-8.png)
-
-### Graphs for JVM memory usage, heap, non heap, and more
-
-![image](https://raw.githubusercontent.com/arivan-amin/Healthcare-Management-Microservices/master/Docs/Grafana/Grafana-Dashboard-9.png)
-
-### Graphs for Hikari connection pool performance
-
-![image](https://raw.githubusercontent.com/arivan-amin/Healthcare-Management-Microservices/master/Docs/Grafana/Grafana-Dashboard-10.png)
-
-### Graphs for Tomcat sessions, send and receive and threads
-
-![image](https://raw.githubusercontent.com/arivan-amin/Healthcare-Management-Microservices/master/Docs/Grafana/Grafana-Dashboard-11.png)
-
-### Graphs for log events and their volume per minute
-
-![image](https://raw.githubusercontent.com/arivan-amin/Healthcare-Management-Microservices/master/Docs/Grafana/Grafana-Dashboard-12.png)
-
 ## Installation
 
 ### Prerequisites

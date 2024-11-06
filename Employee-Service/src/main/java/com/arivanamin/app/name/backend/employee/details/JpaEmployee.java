@@ -1,13 +1,11 @@
 package com.arivanamin.app.name.backend.employee.details;
 
 import com.arivanamin.app.name.backend.employee.core.entity.Employee;
-import com.arivanamin.healthcare.backend.core.domain.gender.Gender;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.modelmapper.ModelMapper;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -26,22 +24,7 @@ class JpaEmployee {
     UUID id;
     
     @NotBlank
-    String firstName;
-    
-    @NotBlank
-    String lastName;
-    
-    @Email
-    String email;
-    
-    @Past
-    LocalDate dateOfBirth;
-    
-    @NotNull
-    Gender gender;
-    
-    @NotBlank
-    String address;
+    String name;
     
     public static JpaEmployee fromDomain (Employee employee) {
         return mapper.map(employee, JpaEmployee.class);

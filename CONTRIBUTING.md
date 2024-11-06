@@ -1,4 +1,4 @@
-# Contributing to Healthcare Management System
+# Contributing to App-Name
 
 Thank you for considering contributing to Project-Name. We're excited to collaborate with the
 open-source community to improve this project. Below are some guidelines to help you get started.
