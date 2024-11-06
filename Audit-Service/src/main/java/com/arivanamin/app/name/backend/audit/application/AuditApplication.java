@@ -1,4 +1,4 @@
-package com.arivanamin.healthcare.backend.audit.application;
+package com.arivanamin.app.name.backend.audit.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

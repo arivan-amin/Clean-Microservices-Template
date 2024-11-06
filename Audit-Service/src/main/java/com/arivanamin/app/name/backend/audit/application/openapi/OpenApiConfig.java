@@ -1,4 +1,4 @@
-package com.arivanamin.healthcare.backend.audit.application.openapi;
+package com.arivanamin.app.name.backend.audit.application.openapi;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
