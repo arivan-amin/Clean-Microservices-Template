@@ -9,6 +9,7 @@ import org.modelmapper.ModelMapper;
 import java.util.UUID;
 
 @Entity
+@Table (name = "employees")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -20,7 +21,7 @@ class JpaEmployee {
     private static ModelMapper mapper = new ModelMapper();
     
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue
     UUID id;
     
     @NotBlank

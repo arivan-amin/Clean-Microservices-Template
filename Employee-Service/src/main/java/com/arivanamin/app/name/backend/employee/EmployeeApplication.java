@@ -10,9 +10,9 @@ import static com.arivanamin.app.name.backend.core.domain.base.CoreApplicationCo
 @SpringBootApplication (scanBasePackages = BASE_PACKAGE)
 @EnableDiscoveryClient
 @EnableCaching
-public class SampleApplication {
+public class EmployeeApplication {
     
     public static void main (String[] args) {
-        SpringApplication.run(SampleApplication.class, args);
+        SpringApplication.run(EmployeeApplication.class, args);
     }
 }
