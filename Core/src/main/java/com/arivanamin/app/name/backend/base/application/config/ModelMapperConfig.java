@@ -1,4 +1,4 @@
-package com.arivanamin.app.name.backend.core.infrastructure.config;
+package com.arivanamin.app.name.backend.base.application.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

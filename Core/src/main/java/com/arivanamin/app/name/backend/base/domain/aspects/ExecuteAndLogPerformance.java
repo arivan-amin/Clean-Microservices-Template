@@ -1,4 +1,4 @@
-package com.arivanamin.app.name.backend.core.domain.aspects;
+package com.arivanamin.app.name.backend.base.domain.aspects;
 
 import lombok.extern.slf4j.Slf4j;
 

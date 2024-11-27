@@ -1,4 +1,4 @@
-package com.arivanamin.app.name.backend.core.infrastructure.openapi;
+package com.arivanamin.app.name.backend.base.application.openapi;
 
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.License;

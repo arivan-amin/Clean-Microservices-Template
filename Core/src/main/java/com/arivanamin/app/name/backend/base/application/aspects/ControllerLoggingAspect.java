@@ -1,4 +1,4 @@
-package com.arivanamin.app.name.backend.core.infrastructure.aspects;
+package com.arivanamin.app.name.backend.base.application.aspects;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import static com.arivanamin.app.name.backend.core.domain.aspects.ExecuteAndLogPerformance.executeThrowable;
+import static com.arivanamin.app.name.backend.base.domain.aspects.ExecuteAndLogPerformance.executeThrowable;
 
 @Aspect
 @Component

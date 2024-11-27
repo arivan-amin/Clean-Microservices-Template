@@ -1,6 +1,6 @@
-package com.arivanamin.app.name.backend.core.infrastructure.aspects;
+package com.arivanamin.app.name.backend.base.application.aspects;
 
-import com.arivanamin.app.name.backend.core.domain.aspects.ExecuteAndLogPerformance;
+import com.arivanamin.app.name.backend.base.domain.aspects.ExecuteAndLogPerformance;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;

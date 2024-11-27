@@ -1,4 +1,4 @@
-package com.arivanamin.app.name.backend.core.infrastructure.observability;
+package com.arivanamin.app.name.backend.base.application.observability;
 
 import io.micrometer.observation.ObservationRegistry;
 import io.micrometer.observation.aop.ObservedAspect;
