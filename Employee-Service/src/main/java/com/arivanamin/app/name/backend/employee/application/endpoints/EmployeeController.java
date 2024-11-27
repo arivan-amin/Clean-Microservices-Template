@@ -6,6 +6,7 @@ import com.arivanamin.app.name.backend.employee.core.command.*;
 import com.arivanamin.app.name.backend.employee.core.query.ReadEmployeeByIdQuery;
 import com.arivanamin.app.name.backend.employee.core.query.ReadEmployeesQuery;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
@@ -16,11 +17,12 @@ import java.util.UUID;
 
 import static com.arivanamin.app.name.backend.employee.application.config.ApiConfig.API_BASE_PATH;
 
+@Tag (name = "Employee Controller")
 @RestController
 @RequestMapping (API_BASE_PATH)
 @RequiredArgsConstructor
 @Slf4j
-public class EmployeeController {
+class EmployeeController {
     
     private final ReadEmployeesQuery readQuery;
     private final ReadEmployeeByIdQuery readByIdQuery;

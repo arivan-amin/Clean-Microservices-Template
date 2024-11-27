@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-import static com.arivanamin.app.name.backend.core.infrastructure.openapi.OpenApiDetails.*;
+import static com.arivanamin.app.name.backend.base.application.openapi.OpenApiDetails.*;
 
 @Configuration
 public class OpenApiConfig {

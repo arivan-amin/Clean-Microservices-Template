@@ -33,7 +33,12 @@
         <dependency>
             <groupId>com.arivanamin.app-name</groupId>
             <artifactId>Core</artifactId>
-            <version>1.0.0</version>
+            <version>${core-module-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.arivanamin.app-name</groupId>
+            <artifactId>Testing</artifactId>
+            <version>${testing-module-version}</version>
         </dependency>
 
         <dependency>
