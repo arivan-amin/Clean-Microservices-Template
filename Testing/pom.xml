@@ -40,7 +40,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.arivanamin.healthcare</groupId>
+            <groupId>com.arivanamin.app-name</groupId>
             <artifactId>Core</artifactId>
             <version>${core-module-version}</version>
         </dependency>

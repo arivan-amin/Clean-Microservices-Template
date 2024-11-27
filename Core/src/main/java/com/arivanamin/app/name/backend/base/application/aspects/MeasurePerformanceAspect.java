@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 import static com.arivanamin.app.name.backend.base.domain.aspects.ExecuteAndLogPerformance.executeThrowable;
-import static com.arivanamin.app.name.backend.base.domain.base.CoreApplicationConfig.BASE_PACKAGE;
+import static com.arivanamin.app.name.backend.base.domain.config.CoreApplicationConfig.BASE_PACKAGE;
 
 @Aspect
 @Component

@@ -1,4 +1,4 @@
-package com.arivanamin.app.name.backend.base.domain.base;
+package com.arivanamin.app.name.backend.base.domain.config;
 
 import java.nio.file.Path;
 import java.time.ZoneId;

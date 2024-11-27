@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ObservabilityConfiguration {
+class ObservabilityConfiguration {
     
     @Bean
     ObservedAspect observedAspect (ObservationRegistry registry) {

@@ -7,6 +7,7 @@ import com.arivanamin.app.name.backend.employee.core.query.ReadEmployeeByIdQuery
 import com.arivanamin.app.name.backend.employee.core.query.ReadEmployeesQuery;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
@@ -15,11 +16,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
-import static com.arivanamin.app.name.backend.employee.application.config.ApiConfig.API_BASE_PATH;
+import static com.arivanamin.app.name.backend.employee.application.config.EmployeeApiConfig.PROTECTED_API_BASE_PATH;
 
 @Tag (name = "Employee Controller")
 @RestController
-@RequestMapping (API_BASE_PATH)
 @RequiredArgsConstructor
 @Slf4j
 class EmployeeController {
@@ -30,38 +30,39 @@ class EmployeeController {
     private final UpdateEmployeeCommand updateCommand;
     private final DeleteEmployeeCommand deleteCommand;
     
+    @GetMapping (PROTECTED_API_BASE_PATH + "/v1/accounts")
     @Cacheable (cacheNames = "employeesCache")
-    @GetMapping ("/v1/accounts")
     @Operation (summary = "Get a list of employees")
     @ResponseStatus (HttpStatus.OK)
     public ReadPatientsResponse getAllPatients () {
         return ReadPatientsResponse.of(readQuery.execute());
     }
     
+    @GetMapping (PROTECTED_API_BASE_PATH + "/v1/accounts/{id}")
     @Cacheable (cacheNames = "employeeByIdCache")
-    @GetMapping ("/v1/accounts/{id}")
     @Operation (summary = "Get a single employee by id")
     @ResponseStatus (HttpStatus.OK)
     public PatientResponse getPatientById (@PathVariable UUID id) {
         return PatientResponse.of(readByIdQuery.execute(id));
     }
     
-    @PostMapping ("/v1/accounts")
+    @PostMapping (PROTECTED_API_BASE_PATH + "/v1/accounts")
     @Operation (summary = "Creates an employee")
     @ResponseStatus (HttpStatus.CREATED)
-    public CreatePatientResponse createPatient (@RequestBody CreateEmployeeRequest request) {
-        UUID createdPatientId = createCommand.execute(request);
+    public CreatePatientResponse createPatient (@RequestBody @Valid CreateEmployeeRequest request) {
+        UUID createdPatientId = createCommand.execute(request.toEntity());
         return CreatePatientResponse.of(createdPatientId);
     }
     
-    @PutMapping ("/v1/accounts/{id}")
+    @PutMapping (PROTECTED_API_BASE_PATH + "/v1/accounts/{id}")
     @Operation (summary = "Updates an employee")
     @ResponseStatus (HttpStatus.OK)
-    public void updatePatient (@PathVariable UUID id, @RequestBody CreateEmployeeRequest request) {
-        updateCommand.execute(id, request);
+    public void updatePatient (@PathVariable UUID id,
+                               @RequestBody @Valid CreateEmployeeRequest request) {
+        updateCommand.execute(id, request.toEntity());
     }
     
-    @DeleteMapping ("/v1/accounts/{id}")
+    @DeleteMapping (PROTECTED_API_BASE_PATH + "/v1/accounts/{id}")
     @Operation (summary = "Deletes an employee")
     @ResponseStatus (HttpStatus.NO_CONTENT)
     public void deletePatient (@PathVariable UUID id) {
