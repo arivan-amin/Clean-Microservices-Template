@@ -1,0 +1,22 @@
+<component name="ProjectRunConfigurationManager">
+    <configuration default="false" name="EmployeeApplication" type="Application"
+                   factoryName="Application" nameIsGenerated="true">
+        <envs>
+            <env name="EUREKA_USER" value="admin" />
+            <env name="EUREKA_PASSWORD" value="admin" />
+        </envs>
+        <option name="MAIN_CLASS_NAME"
+                value="com.arivanamin.app.name.backend.employee.EmployeeApplication" />
+        <module name="employee-service" />
+        <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Employee-Service" />
+        <extension name="coverage">
+            <pattern>
+                <option name="PATTERN" value="com.arivanamin.app.name.backend.employee.*" />
+                <option name="ENABLED" value="true" />
+            </pattern>
+        </extension>
+        <method v="2">
+            <option name="Make" enabled="true" />
+        </method>
+    </configuration>
+</component>
