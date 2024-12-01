@@ -13,6 +13,7 @@ public class ReadEmployeeByIdQuery {
     private final EmployeePersistence persistence;
     
     public Employee execute (UUID id) {
-        return persistence.findById(id).orElseThrow(EmployeeNotFoundException::new);
+        return persistence.findById(id)
+            .orElseThrow(EmployeeNotFoundException::new);
     }
 }

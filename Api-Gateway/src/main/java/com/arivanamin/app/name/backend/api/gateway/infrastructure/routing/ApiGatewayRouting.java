@@ -29,20 +29,25 @@ public class ApiGatewayRouting {
     }
     
     private Function<PredicateSpec, Buildable<Route>> getDiscoveryServerRoute () {
-        return r -> r.path("/eureka/web").filters(f -> f.setPath("/")).uri(EUREKA_URL);
+        return r -> r.path("/eureka/web")
+            .filters(f -> f.setPath("/"))
+            .uri(EUREKA_URL);
     }
     
     private Function<PredicateSpec, Buildable<Route>> getDiscoveryServerStaticResourcesRoute () {
-        return r -> r.path("/eureka/**").uri(EUREKA_URL);
+        return r -> r.path("/eureka/**")
+            .uri(EUREKA_URL);
     }
     
     private Function<PredicateSpec, Buildable<Route>> getEmployeeServiceRoute () {
-        return r -> r.path("/employees/**").uri("lb://employee-service");
+        return r -> r.path("/employees/**")
+            .uri("lb://employee-service");
     }
     
     private Function<PredicateSpec, Buildable<Route>> getEmployeeServiceApiDocRoute () {
         return r -> r.path("/employee-service/api-docs")
-            .filters(f -> f.setPath("/v3/api-docs")).uri("lb://employee-service");
+            .filters(f -> f.setPath("/v3/api-docs"))
+            .uri("lb://employee-service");
     }
     
     private Function<PredicateSpec, Buildable<Route>> getEmployeeServiceActuatorRoute () {

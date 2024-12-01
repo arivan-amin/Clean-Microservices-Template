@@ -49,6 +49,8 @@ public interface TestingBestPracticeRules extends BaseUnitTest {
         .beAssignableTo(BaseIntegrationTest.class);
     
     @ArchTest
-    ArchRule TEST_METHODS_SHOULD_BE_PACKAGE_PRIVATE =
-        methods().that().areAnnotatedWith(Test.class).should().bePackagePrivate();
+    ArchRule TEST_METHODS_SHOULD_BE_PACKAGE_PRIVATE = methods().that()
+        .areAnnotatedWith(Test.class)
+        .should()
+        .bePackagePrivate();
 }

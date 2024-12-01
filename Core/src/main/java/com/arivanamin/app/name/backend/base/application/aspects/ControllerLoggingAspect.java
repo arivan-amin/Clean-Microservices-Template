@@ -13,7 +13,7 @@ import static com.arivanamin.app.name.backend.base.domain.aspects.ExecuteAndLogP
 @Aspect
 @Component
 @Slf4j
-public class ControllerLoggingAspect {
+class ControllerLoggingAspect {
     
     @Around ("""
             @annotation(org.springframework.web.bind.annotation.GetMapping)

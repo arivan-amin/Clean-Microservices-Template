@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 @Slf4j
-public class SpringSchedulerLoggingAspect {
+class SpringSchedulerLoggingAspect {
     
     @Around ("@annotation(org.springframework.scheduling.annotation.Scheduled)")
     public Object logScheduler (ProceedingJoinPoint joinPoint) throws Throwable {
@@ -20,7 +20,8 @@ public class SpringSchedulerLoggingAspect {
     }
     
     private String initJobName (JoinPoint joinPoint) {
-        final String classPath = joinPoint.getSignature().getDeclaringTypeName();
+        final String classPath = joinPoint.getSignature()
+            .getDeclaringTypeName();
         return "The scheduled task: %s".formatted(classPath);
     }
 }

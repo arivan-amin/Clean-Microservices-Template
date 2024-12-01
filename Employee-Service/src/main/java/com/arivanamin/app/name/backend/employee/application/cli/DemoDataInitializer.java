@@ -19,8 +19,10 @@ class DemoDataInitializer {
     @Bean
     CommandLineRunner initDatabase (EmployeePersistence persistence) {
         return args -> {
-            if (persistence.findAll().isEmpty()) {
-                int numberOfEntities = faker.number().numberBetween(5, 15);
+            if (persistence.findAll()
+                .isEmpty()) {
+                int numberOfEntities = faker.number()
+                    .numberBetween(5, 15);
                 populateEmployeeRepository(persistence, numberOfEntities);
             }
         };
@@ -35,7 +37,8 @@ class DemoDataInitializer {
     
     private Employee createEmployee (long i) {
         Employee employee = new Employee();
-        employee.setName(faker.elderScrolls().firstName());
+        employee.setName(faker.elderScrolls()
+            .firstName());
         return employee;
     }
 }

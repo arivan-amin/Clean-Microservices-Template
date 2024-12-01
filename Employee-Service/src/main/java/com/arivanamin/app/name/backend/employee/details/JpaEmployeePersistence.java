@@ -21,23 +21,28 @@ public class JpaEmployeePersistence implements EmployeePersistence {
     
     @Override
     public List<Employee> findAll () {
-        return repository.findAll().stream().map(JpaEmployee::toDomain).toList();
+        return repository.findAll()
+            .stream()
+            .map(JpaEmployee::toDomain)
+            .toList();
     }
     
     @Override
     public Optional<Employee> findById (UUID id) {
-        return repository.findById(id).map(JpaEmployee::toDomain);
+        return repository.findById(id)
+            .map(JpaEmployee::toDomain);
     }
     
     @Override
     public UUID create (Employee employee) {
-        return repository.save(JpaEmployee.fromDomain(employee)).getId();
+        return repository.save(JpaEmployee.fromDomain(employee))
+            .getId();
     }
     
     @Override
     public void update (UUID id, Employee employeeEntity) {
-        JpaEmployee jpaEmployee =
-            repository.findById(id).orElseThrow(EmployeeNotFoundException::new);
+        JpaEmployee jpaEmployee = repository.findById(id)
+            .orElseThrow(EmployeeNotFoundException::new);
         modelMapper.map(employeeEntity, jpaEmployee);
         repository.save(jpaEmployee);
     }

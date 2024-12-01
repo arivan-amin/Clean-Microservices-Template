@@ -11,6 +11,8 @@ public class ReadPatientsResponse {
     List<PatientResponse> responses;
     
     public static ReadPatientsResponse of (List<Employee> employees) {
-        return new ReadPatientsResponse(employees.stream().map(PatientResponse::of).toList());
+        return new ReadPatientsResponse(employees.stream()
+            .map(PatientResponse::of)
+            .toList());
     }
 }

@@ -14,7 +14,7 @@ import static com.arivanamin.app.name.backend.base.domain.config.CoreApplication
 @Aspect
 @Component
 @Slf4j
-public class MeasurePerformanceAspect {
+class MeasurePerformanceAspect {
     
     @Around ("@annotation(" + BASE_PACKAGE + ".base.domain.aspects.LogExecutionTime)")
     public Object logExecutionTimeOfMethod (ProceedingJoinPoint joinPoint) throws Throwable {
@@ -22,7 +22,8 @@ public class MeasurePerformanceAspect {
         
         log.info("Called method: {}, with parameters: {}", joinPoint.getSignature(), args);
         
-        String methodName = joinPoint.getSignature().toShortString();
+        String methodName = joinPoint.getSignature()
+            .toShortString();
         return executeThrowable(methodName, joinPoint::proceed);
     }
 }
