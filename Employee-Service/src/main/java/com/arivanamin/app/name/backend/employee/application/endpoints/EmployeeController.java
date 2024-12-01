@@ -58,7 +58,7 @@ class EmployeeController {
     @Operation (summary = "Updates an employee")
     @ResponseStatus (HttpStatus.OK)
     public void updatePatient (@PathVariable UUID id,
-                               @RequestBody @Valid CreateEmployeeRequest request) {
+        @RequestBody @Valid CreateEmployeeRequest request) {
         updateCommand.execute(id, request.toEntity());
     }
     
