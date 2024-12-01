@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SpringBeansConfig {
+class SpringBeansConfig {
     
     @Bean
     public EmployeePersistence persistence (EmployeeRepository repository) {
