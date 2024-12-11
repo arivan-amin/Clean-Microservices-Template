@@ -80,7 +80,7 @@ The system is designed to manage ___________ as a microservices using modern **J
     - Open your browser and navigate to **Grafana** at: http://localhost:3000/dashboards
     - In the **Grafana** dashboards page, click on the **New** icon on the top right side and select
       **Import**.
-    - Choose both json file located at: **project-root/docker/grafana/**
+   - Choose json file located at: **project-root/docker/grafana/**
     - Complete the import process, now you should have a dashboard to monitor Spring Boot.
 
 ## Testing
