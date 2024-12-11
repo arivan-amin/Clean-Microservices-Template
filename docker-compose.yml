@@ -85,7 +85,7 @@ services:
   mysql:
     container_name: app-name-mysql
     restart: unless-stopped
-    image: mysql:9.0.1
+    image: mysql:9.1.0
     environment:
       MYSQL_ROOT_PASSWORD: mysql
     ports:

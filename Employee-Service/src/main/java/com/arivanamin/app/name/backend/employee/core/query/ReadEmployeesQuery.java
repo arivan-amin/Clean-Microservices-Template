@@ -9,9 +9,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ReadEmployeesQuery {
     
-    private final EmployeeStorage persistence;
+    private final EmployeeStorage storage;
     
     public List<Employee> execute () {
-        return persistence.findAll();
+        return storage.findAll();
     }
 }

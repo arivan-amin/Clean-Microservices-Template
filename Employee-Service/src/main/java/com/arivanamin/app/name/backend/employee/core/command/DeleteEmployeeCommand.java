@@ -8,9 +8,9 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class DeleteEmployeeCommand {
     
-    private final EmployeeStorage persistence;
+    private final EmployeeStorage storage;
     
     public void execute (UUID id) {
-        persistence.delete(id);
+        storage.delete(id);
     }
 }

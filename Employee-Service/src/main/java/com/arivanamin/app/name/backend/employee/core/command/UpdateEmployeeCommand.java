@@ -9,9 +9,9 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UpdateEmployeeCommand {
     
-    private final EmployeeStorage persistence;
+    private final EmployeeStorage storage;
     
     public void execute (UUID id, Employee employee) {
-        persistence.update(id, employee);
+        storage.update(id, employee);
     }
 }

@@ -10,10 +10,10 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ReadEmployeeByIdQuery {
     
-    private final EmployeeStorage persistence;
+    private final EmployeeStorage storage;
     
     public Employee execute (UUID id) {
-        return persistence.findById(id)
+        return storage.findById(id)
             .orElseThrow(EmployeeNotFoundException::new);
     }
 }

@@ -9,9 +9,9 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class CreateEmployeeCommand {
     
-    private final EmployeeStorage persistence;
+    private final EmployeeStorage storage;
     
     public UUID execute (Employee employee) {
-        return persistence.create(employee);
+        return storage.create(employee);
     }
 }
