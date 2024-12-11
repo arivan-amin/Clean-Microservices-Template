@@ -12,6 +12,9 @@ public final class CoreApplicationConfig {
     
     public static final String BASE_PACKAGE = "com.arivanamin.app.name.backend";
     
+    public static final String LIQUIBASE_CHANGELOG_PATH =
+        "classpath:db/changelog/changelog-master.xml";
+    
     public static final String APP_TIMEZONE = "Asia/Baghdad";
     public static final ZoneId ZONE_ID = ZoneId.of(APP_TIMEZONE);
     
