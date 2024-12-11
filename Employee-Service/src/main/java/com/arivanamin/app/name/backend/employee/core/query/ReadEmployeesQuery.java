@@ -1,7 +1,7 @@
 package com.arivanamin.app.name.backend.employee.core.query;
 
 import com.arivanamin.app.name.backend.employee.core.entity.Employee;
-import com.arivanamin.app.name.backend.employee.core.persistence.EmployeePersistence;
+import com.arivanamin.app.name.backend.employee.core.persistence.EmployeeStorage;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ReadEmployeesQuery {
     
-    private final EmployeePersistence persistence;
+    private final EmployeeStorage persistence;
     
     public List<Employee> execute () {
         return persistence.findAll();

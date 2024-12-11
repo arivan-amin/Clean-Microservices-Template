@@ -1,8 +1,8 @@
-package com.arivanamin.app.name.backend.employee.details;
+package com.arivanamin.app.name.backend.employee.storage;
 
 import com.arivanamin.app.name.backend.employee.core.entity.Employee;
 import com.arivanamin.app.name.backend.employee.core.exception.EmployeeNotFoundException;
-import com.arivanamin.app.name.backend.employee.core.persistence.EmployeePersistence;
+import com.arivanamin.app.name.backend.employee.core.persistence.EmployeeStorage;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +13,7 @@ import java.util.*;
 @RequiredArgsConstructor
 @Slf4j
 @Transactional
-public class JpaEmployeePersistence implements EmployeePersistence {
+public class JpaEmployeeStorage implements EmployeeStorage {
     
     private final EmployeeRepository repository;
     

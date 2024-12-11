@@ -4,7 +4,7 @@ import com.arivanamin.app.name.backend.employee.core.entity.Employee;
 
 import java.util.*;
 
-public interface EmployeePersistence {
+public interface EmployeeStorage {
     
     List<Employee> findAll ();
     

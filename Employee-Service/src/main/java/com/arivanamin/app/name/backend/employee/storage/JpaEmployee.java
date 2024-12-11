@@ -1,4 +1,4 @@
-package com.arivanamin.app.name.backend.employee.details;
+package com.arivanamin.app.name.backend.employee.storage;
 
 import com.arivanamin.app.name.backend.employee.core.entity.Employee;
 import jakarta.persistence.*;
