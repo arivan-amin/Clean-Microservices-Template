@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import static com.arivanamin.app.name.backend.base.domain.config.CoreApplicationConfig.LIQUIBASE_CHANGELOG_PATH;
 
 @Configuration
-class PatientLiquibaseConfig {
+class EmployeeLiquibaseConfig {
     
     @Bean
     public SpringLiquibase liquibase () {

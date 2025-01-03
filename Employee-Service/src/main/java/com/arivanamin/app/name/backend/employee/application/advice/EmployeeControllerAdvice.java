@@ -1,6 +1,7 @@
 package com.arivanamin.app.name.backend.employee.application.advice;
 
 import com.arivanamin.app.name.backend.employee.core.exception.EmployeeNotFoundException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.*;
@@ -15,6 +16,7 @@ import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.ProblemDetail.forStatusAndDetail;
 
 @RestControllerAdvice
+@Slf4j
 class EmployeeControllerAdvice {
     
     @ExceptionHandler (EmployeeNotFoundException.class)
@@ -26,6 +28,7 @@ class EmployeeControllerAdvice {
         detail.setProperty("errorCategory", "Resource not found");
         detail.setProperty("timestamp", Instant.now());
         detail.setDetail(exception.getMessage());
+        log.error("EmployeeNotFoundException advice", exception);
         return detail;
     }
     
@@ -39,6 +42,7 @@ class EmployeeControllerAdvice {
         detail.setProperty("errorCategory", "Missing Parameter");
         detail.setProperty("timestamp", Instant.now());
         detail.setDetail(exception.getMessage());
+        log.error("MissingPathVariableException advice", exception);
         return detail;
     }
     
@@ -52,6 +56,7 @@ class EmployeeControllerAdvice {
         detail.setProperty("errorCategory", "Missing Parameter");
         detail.setProperty("timestamp", Instant.now());
         detail.setDetail(exception.getMessage());
+        log.error("HttpMessageNotReadableException advice", exception);
         return detail;
     }
     
@@ -65,6 +70,7 @@ class EmployeeControllerAdvice {
         detail.setProperty("errorCategory", "Missing Parameter");
         detail.setProperty("timestamp", Instant.now());
         detail.setDetail(exception.getMessage());
+        log.error("MethodArgumentNotValidException advice", exception);
         return detail;
     }
     
@@ -79,6 +85,7 @@ class EmployeeControllerAdvice {
         detail.setProperty("errorCategory", "Missing Parameter");
         detail.setProperty("timestamp", Instant.now());
         detail.setDetail(exception.getMessage());
+        log.error("MissingServletRequestParameterException advice", exception);
         return detail;
     }
     
@@ -93,6 +100,7 @@ class EmployeeControllerAdvice {
         detail.setProperty("errorCategory", "Resource not found");
         detail.setProperty("timestamp", Instant.now());
         detail.setDetail(exception.getMessage());
+        log.error("NoResourceFoundException advice", exception);
         return detail;
     }
     
@@ -106,6 +114,7 @@ class EmployeeControllerAdvice {
         detail.setProperty("errorCategory", "Internal Error");
         detail.setProperty("timestamp", Instant.now());
         detail.setDetail(exception.getMessage());
+        log.error("Exception advice", exception);
         return detail;
     }
 }

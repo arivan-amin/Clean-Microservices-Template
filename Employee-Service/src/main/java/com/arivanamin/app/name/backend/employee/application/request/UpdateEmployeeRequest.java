@@ -1,22 +1,22 @@
 package com.arivanamin.app.name.backend.employee.application.request;
 
 import com.arivanamin.app.name.backend.employee.core.entity.Employee;
-import lombok.*;
+import lombok.Value;
 import org.modelmapper.ModelMapper;
+
+import java.util.UUID;
 
 import static com.arivanamin.app.name.backend.base.domain.dates.TimestampHelper.toLocalDateTime;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class CreateEmployeeRequest {
+@Value
+public class UpdateEmployeeRequest {
     
     String name;
-    String address;
     long dateOfBirth;
     
-    public Employee toEntity () {
+    public Employee toEntity (UUID id) {
         Employee employee = new ModelMapper().map(this, Employee.class);
+        employee.setId(id);
         employee.setDateOfBirth(toLocalDateTime(dateOfBirth).toLocalDate());
         return employee;
     }

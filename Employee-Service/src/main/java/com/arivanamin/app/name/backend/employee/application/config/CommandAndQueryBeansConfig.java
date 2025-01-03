@@ -18,27 +18,27 @@ class CommandAndQueryBeansConfig {
     }
     
     @Bean
-    public ReadEmployeesQuery readPatientsQuery (EmployeeStorage persistence) {
-        return new ReadEmployeesQuery(persistence);
+    public ReadEmployeesQuery readEmployeesQuery (EmployeeStorage storage) {
+        return new ReadEmployeesQuery(storage);
     }
     
     @Bean
-    public ReadEmployeeByIdQuery readPatientByIdQuery (EmployeeStorage persistence) {
-        return new ReadEmployeeByIdQuery(persistence);
+    public ReadEmployeeByIdQuery readEmployeeByIdQuery (EmployeeStorage storage) {
+        return new ReadEmployeeByIdQuery(storage);
     }
     
     @Bean
-    public CreateEmployeeCommand createPatientCommand (EmployeeStorage persistence) {
-        return new CreateEmployeeCommand(persistence);
+    public CreateEmployeeCommand createEmployeeCommand (EmployeeStorage storage) {
+        return new CreateEmployeeCommand(storage);
     }
     
     @Bean
-    public UpdateEmployeeCommand updatePatientCommand (EmployeeStorage persistence) {
-        return new UpdateEmployeeCommand(persistence);
+    public UpdateEmployeeCommand updateEmployeeCommand (EmployeeStorage storage) {
+        return new UpdateEmployeeCommand(storage);
     }
     
     @Bean
-    public DeleteEmployeeCommand deletePatientCommand (EmployeeStorage persistence) {
-        return new DeleteEmployeeCommand(persistence);
+    public DeleteEmployeeCommand deleteEmployeeCommand (EmployeeStorage storage) {
+        return new DeleteEmployeeCommand(storage);
     }
 }
