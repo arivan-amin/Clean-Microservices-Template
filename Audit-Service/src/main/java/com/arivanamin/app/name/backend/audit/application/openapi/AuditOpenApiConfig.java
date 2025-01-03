@@ -11,7 +11,7 @@ import java.util.List;
 import static com.arivanamin.app.name.backend.base.application.openapi.OpenApiDetails.*;
 
 @Configuration
-class OpenApiConfig {
+class AuditOpenApiConfig {
     
     @Bean
     public OpenAPI myOpenAPI () {
