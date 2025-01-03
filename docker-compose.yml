@@ -116,6 +116,10 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: mongo
       ME_CONFIG_MONGODB_SERVER: app-name-mongo
+      ME_CONFIG_MONGODB_PORT: 27017
+      # Mongo Express UI Credentials
+      ME_CONFIG_BASICAUTH_USERNAME: express
+      ME_CONFIG_BASICAUTH_PASSWORD: clean
     depends_on:
       - mongo
 
@@ -173,15 +177,3 @@ services:
       KAFKA_CLUSTERS_NAME: local
       KAFKA_CLUSTERS_BOOTSTRAPSERVERS: broker:29092
       DYNAMIC_CONFIG_ENABLED: 'true'
-
-  # Services
-#  [serviceName]-service:
-#    container_name: app-name-[serviceName]-service
-#    restart: unless-stopped
-#    image: arivanamin/app-name-[serviceName]-service
-#    env_file:
-#      - .env
-#    volumes:
-#      - app-logs:/root/Apps/app-name/Logs/
-#    depends_on:
-#      - discovery-server
