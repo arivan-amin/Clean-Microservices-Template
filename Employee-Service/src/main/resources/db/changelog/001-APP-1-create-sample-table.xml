@@ -7,11 +7,14 @@
 
     <changeSet id="001-APP-1-create-sample-table" author="Arivan-Amin">
 
-        <createTable tableName="sample">
+        <createTable tableName="employees">
             <column name="id" type="BINARY(16)">
                 <constraints primaryKey="true" nullable="false" />
             </column>
             <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="address" type="VARCHAR(255)">
                 <constraints nullable="false" />
             </column>
             <column name="date_of_birth" type="DATE">

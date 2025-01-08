@@ -1,6 +1,6 @@
-package com.arivanamin.app.name.backend.employee.application.advice;
+package com.arivanamin.app.name.backend.audit.application.advice;
 
-import com.arivanamin.app.name.backend.employee.core.exception.EmployeeNotFoundException;
+import com.arivanamin.app.name.backend.audit.core.exception.AuditEventNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -15,20 +15,20 @@ import java.time.Instant;
 import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.ProblemDetail.forStatusAndDetail;
 
-@RestControllerAdvice
 @Slf4j
-class EmployeeControllerAdvice {
+@RestControllerAdvice
+public class AuditControllerAdvice {
     
-    @ExceptionHandler (EmployeeNotFoundException.class)
-    ProblemDetail handleEmployeeNotFound (EmployeeNotFoundException exception) {
+    @ExceptionHandler (AuditEventNotFoundException.class)
+    ProblemDetail handleAuditEventNotFound (AuditEventNotFoundException exception) {
         ProblemDetail detail = forStatusAndDetail(NOT_FOUND, exception.getMessage());
-        detail.setTitle("Bad Request, Employee not found");
+        detail.setTitle("Bad Request, Audit Event not found");
         detail.setType(URI.create("https://docs.oracle.com/en/java/javase/21/docs/api/java" +
             ".base/java/lang/RuntimeException.html"));
         detail.setProperty("errorCategory", "Resource not found");
         detail.setProperty("timestamp", Instant.now());
         detail.setDetail(exception.getMessage());
-        log.error("EmployeeNotFoundException advice", exception);
+        log.error("AuditEventNotFoundException advice", exception);
         return detail;
     }
     

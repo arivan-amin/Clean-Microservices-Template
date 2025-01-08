@@ -5,11 +5,11 @@ import lombok.Value;
 import java.util.UUID;
 
 @Value
-public class CreatePatientResponse {
+public class CreateEmployeeResponse {
     
     UUID id;
     
-    public static CreatePatientResponse of (UUID id) {
-        return new CreatePatientResponse(id);
+    public static CreateEmployeeResponse of (UUID id) {
+        return new CreateEmployeeResponse(id);
     }
 }

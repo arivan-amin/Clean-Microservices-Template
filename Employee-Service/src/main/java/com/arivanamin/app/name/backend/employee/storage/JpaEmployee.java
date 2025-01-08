@@ -4,6 +4,7 @@ import com.arivanamin.app.name.backend.employee.core.entity.Employee;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import org.hibernate.annotations.UuidGenerator;
 import org.modelmapper.ModelMapper;
 
 import java.util.UUID;
@@ -18,20 +19,18 @@ import java.util.UUID;
 @ToString
 class JpaEmployee {
     
-    private static ModelMapper mapper = new ModelMapper();
-    
     @Id
-    @GeneratedValue
+    @UuidGenerator
     UUID id;
     
     @NotBlank
     String name;
     
     public static JpaEmployee fromDomain (Employee employee) {
-        return mapper.map(employee, JpaEmployee.class);
+        return new ModelMapper().map(employee, JpaEmployee.class);
     }
     
     public Employee toDomain () {
-        return mapper.map(this, Employee.class);
+        return new ModelMapper().map(this, Employee.class);
     }
 }

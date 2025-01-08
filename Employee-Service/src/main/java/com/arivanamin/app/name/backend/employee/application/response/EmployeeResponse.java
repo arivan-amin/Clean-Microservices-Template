@@ -9,13 +9,12 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PatientResponse {
+public class EmployeeResponse {
     
     UUID id;
     String name;
     
-    public static PatientResponse of (Employee employee) {
-        ModelMapper mapper = new ModelMapper();
-        return mapper.map(employee, PatientResponse.class);
+    public static EmployeeResponse of (Employee employee) {
+        return new ModelMapper().map(employee, EmployeeResponse.class);
     }
 }

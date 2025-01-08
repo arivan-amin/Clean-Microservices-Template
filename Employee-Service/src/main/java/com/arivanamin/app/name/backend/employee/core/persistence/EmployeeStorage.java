@@ -12,7 +12,7 @@ public interface EmployeeStorage {
     
     UUID create (Employee employee);
     
-    void update (UUID id, Employee employee);
+    void update (Employee employee);
     
     void delete (UUID id);
 }
